@@ -58,6 +58,9 @@
             color: white;
             font-weight: 600;
         }
+        #sidebar {
+            transition: width 0.3s;
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-300 antialiased">
@@ -79,7 +82,13 @@
 
     <div class="container mx-auto px-6 py-12 flex">
         <!-- Sidebar -->
-        <aside class="w-1/4 p-4 bg-slate-800/50 border-r border-slate-800">
+        <aside id="sidebar" class="w-1/4 p-4 bg-slate-800/50 border-r border-slate-800">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-semibold text-slate-200">Разделы</h2>
+                <button id="sidebar-toggle" class="md:hidden p-2">
+                    <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
             <h2 class="text-lg font-semibold text-slate-200 mb-4">Разделы</h2>
             <nav>
                 <div>
@@ -104,7 +113,7 @@
         </aside>
 
         <!-- Main Content -->
-        <main class="w-3/4 prose max-w-none" itemscope itemtype="http://schema.org/BlogPosting">
+        <main id="main-content" class="w-3/4 prose max-w-none" itemscope itemtype="http://schema.org/BlogPosting">
             <h1 itemprop="headline">Анализ клиентских отзывов с помощью NLP: от идеи до прототипа</h1>
             <p class="text-slate-400" itemprop="datePublished" content="2025-07-16">Опубликовано: 16 июля 2025</p>
             <div itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -143,5 +152,21 @@
         </main>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+            const mainContent = document.getElementById('main-content');
+
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('w-1/4');
+                sidebar.classList.toggle('w-0');
+                sidebar.classList.toggle('p-4');
+                sidebar.classList.toggle('p-0');
+                mainContent.classList.toggle('w-3/4');
+                mainContent.classList.toggle('w-full');
+            });
+        });
+    </script>
 </body>
 </html>
