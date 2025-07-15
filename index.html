@@ -52,6 +52,42 @@
 
         .chart-container { position: relative; width: 100%; max-width: 300px; margin-left: auto; margin-right: auto; height: 300px; max-height: 300px; }
         .case-card.active { border-color: #2563EB; transform: translateY(-5px); }
+        .case-card { position: relative; overflow: hidden; }
+        .case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .case-card:hover::before {
+            opacity: 0.2;
+        }
+        .case-card > * {
+            position: relative;
+            z-index: 1;
+        }
+        #flagship::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('assets/bg-flagship.svg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        #seo-card::before { background-image: url('assets/bg-seo.svg'); }
+        #market-card::before { background-image: url('assets/bg-market.svg'); }
+        #infra-card::before { background-image: url('assets/bg-infra.svg'); }
+        #bots-card::before { background-image: url('assets/bg-bots.svg'); }
+
         .case-details { max-height: 0; overflow: hidden; transition: max-height 0.7s ease-in-out; }
         .case-details.open { max-height: 1000px; }
         .flow-arrow::after { content: '→'; color: #9CA3AF; font-size: 2rem; margin: 0 1rem; }
@@ -84,51 +120,53 @@
             <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">Мы строим надежные, автоматизированные системы, которые становятся ядром вашего бизнеса. Наш подход — это инженерия, а не «творчество».</p>
         </section>
 
-        <section id="flagship" class="py-16 bg-slate-800/50 rounded-2xl shadow-lg border border-slate-800">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-100">Флагманский проект: Платформа "News Automation"</h2>
-                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">Мы спроектировали полную замену отдела райтеров — автоматизированную AI-фабрику новостей.</p>
+        <section id="flagship" class="relative py-16 bg-slate-800/50 rounded-2xl shadow-lg border border-slate-800 overflow-hidden">
+            <div class="relative z-10">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-100">Флагманский проект: Платформа "News Automation"</h2>
+                    <p class="mt-4 text-slate-400 max-w-2xl mx-auto">Мы спроектировали полную замену отдела райтеров — автоматизированную AI-фабрику новостей.</p>
+                </div>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
+                    <!-- Step 1: Источники -->
+                    <div class="flow-step flex flex-col items-center text-center p-4">
+                        <div class="flex items-center justify-center w-16 h-16 bg-slate-700/50 rounded-full border border-slate-600 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 1.1.9 2 2 2h12a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H6a2 2 0 00-2 2z" /></svg>
+                        </div>
+                        <h3 class="font-semibold text-slate-200">Источники</h3>
+                        <p class="text-sm text-slate-400">TG-каналы, Сайты</p>
+                    </div>
+                    <div class="flow-arrow hidden md:block text-slate-600 text-4xl mx-4">→</div>
+                    <!-- Step 2: Парсинг -->
+                    <div class="flow-step flex flex-col items-center text-center p-4">
+                        <div class="flex items-center justify-center w-16 h-16 bg-slate-700/50 rounded-full border border-slate-600 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <h3 class="font-semibold text-slate-200">Парсинг и Цензура</h3>
+                        <p class="text-sm text-slate-400">Фильтрация контента</p>
+                    </div>
+                    <div class="flow-arrow hidden md:block text-slate-600 text-4xl mx-4">→</div>
+                    <!-- Step 3: AI-Рерайтинг -->
+                    <div class="flow-step flex flex-col items-center text-center p-4">
+                        <div class="flex items-center justify-center w-16 h-16 bg-blue-500/20 rounded-full border border-blue-500/30 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.562L16.5 21.75l-.398-1.188a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.188-.398a2.25 2.25 0 001.423-1.423L16.5 15.75l.398 1.188a2.25 2.25 0 001.423 1.423L19.5 18.75l-1.188.398a2.25 2.25 0 00-1.423 1.423z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-blue-400">AI-Рерайтинг</h3>
+                        <p class="text-sm text-blue-500">Генерация версий</p>
+                    </div>
+                    <div class="flow-arrow hidden md:block text-slate-600 text-4xl mx-4">→</div>
+                    <!-- Step 4: Кабинет Редактора -->
+                    <div class="flow-step flex flex-col items-center text-center p-4">
+                        <div class="flex items-center justify-center w-16 h-16 bg-slate-700/50 rounded-full border border-slate-600 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
+                        </div>
+                        <h3 class="font-semibold text-slate-200">Кабинет Редактора</h3>
+                        <p class="text-sm text-slate-400">Модерация и управление</p>
+                    </div>
+                </div>
+                <p class="text-center mt-12 text-slate-500">Это не просто идея, а готовая техническая спецификация — полный blueprint для разработки.</p>
             </div>
-            <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
-                <!-- Step 1: Источники -->
-                <div class="flow-step flex flex-col items-center text-center p-4">
-                    <div class="flex items-center justify-center w-16 h-16 bg-slate-700/50 rounded-full border border-slate-600 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 1.1.9 2 2 2h12a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H6a2 2 0 00-2 2z" /></svg>
-                    </div>
-                    <h3 class="font-semibold text-slate-200">Источники</h3>
-                    <p class="text-sm text-slate-400">TG-каналы, Сайты</p>
-                </div>
-                <div class="flow-arrow hidden md:block text-slate-600 text-4xl mx-4">→</div>
-                <!-- Step 2: Парсинг -->
-                <div class="flow-step flex flex-col items-center text-center p-4">
-                    <div class="flex items-center justify-center w-16 h-16 bg-slate-700/50 rounded-full border border-slate-600 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    </div>
-                    <h3 class="font-semibold text-slate-200">Парсинг и Цензура</h3>
-                    <p class="text-sm text-slate-400">Фильтрация контента</p>
-                </div>
-                <div class="flow-arrow hidden md:block text-slate-600 text-4xl mx-4">→</div>
-                <!-- Step 3: AI-Рерайтинг -->
-                <div class="flow-step flex flex-col items-center text-center p-4">
-                    <div class="flex items-center justify-center w-16 h-16 bg-blue-500/20 rounded-full border border-blue-500/30 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.562L16.5 21.75l-.398-1.188a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.188-.398a2.25 2.25 0 001.423-1.423L16.5 15.75l.398 1.188a2.25 2.25 0 001.423 1.423L19.5 18.75l-1.188.398a2.25 2.25 0 00-1.423 1.423z" />
-                        </svg>
-                    </div>
-                    <h3 class="font-semibold text-blue-400">AI-Рерайтинг</h3>
-                    <p class="text-sm text-blue-500">Генерация версий</p>
-                </div>
-                <div class="flow-arrow hidden md:block text-slate-600 text-4xl mx-4">→</div>
-                <!-- Step 4: Кабинет Редактора -->
-                <div class="flow-step flex flex-col items-center text-center p-4">
-                    <div class="flex items-center justify-center w-16 h-16 bg-slate-700/50 rounded-full border border-slate-600 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
-                    </div>
-                    <h3 class="font-semibold text-slate-200">Кабинет Редактора</h3>
-                    <p class="text-sm text-slate-400">Модерация и управление</p>
-                </div>
-            </div>
-            <p class="text-center mt-12 text-slate-500">Это не просто идея, а готовая техническая спецификация — полный blueprint для разработки.</p>
         </section>
 
 
@@ -139,7 +177,7 @@
             </div>
             <div class="grid md:grid-cols-2 gap-8">
                 
-                <div class="case-card bg-slate-800/50 p-6 rounded-2xl shadow-lg cursor-pointer border-2 border-slate-800 hover:border-blue-600 transition-all duration-300" data-case="1">
+                <div id="seo-card" class="case-card bg-slate-800/50 p-6 rounded-2xl shadow-lg cursor-pointer border-2 border-slate-800 hover:border-blue-600 transition-all duration-300" data-case="1">
                     <h3 class="text-xl font-bold mb-2">AI SEO-генератор (Проект под NDA)</h3>
                     <p class="text-slate-400 mb-4">Автоматизация создания SEO-контента для тысяч страниц сайта, включая статьи и карточки товаров.</p>
                     <div class="case-details" id="case-details-1">
@@ -164,7 +202,7 @@
                     </div>
                 </div>
 
-                <div class="case-card bg-slate-800/50 p-6 rounded-2xl shadow-lg cursor-pointer border-2 border-slate-800 hover:border-blue-600 transition-all duration-300" data-case="2">
+                <div id="market-card" class="case-card bg-slate-800/50 p-6 rounded-2xl shadow-lg cursor-pointer border-2 border-slate-800 hover:border-blue-600 transition-all duration-300" data-case="2">
                     <h3 class="text-xl font-bold mb-2">AI-аналитик рынка (Проект под NDA)</h3>
                     <p class="text-slate-400 mb-4">Создание платформы для мониторинга конкурентов: цен, акций и продуктовых новинок.</p>
                     <div class="case-details" id="case-details-2">
@@ -185,7 +223,7 @@
                     </div>
                 </div>
 
-                <div class="case-card bg-slate-800/50 p-6 rounded-2xl shadow-lg cursor-pointer border-2 border-slate-800 hover:border-blue-600 transition-all duration-300" data-case="3">
+                <div id="infra-card" class="case-card bg-slate-800/50 p-6 rounded-2xl shadow-lg cursor-pointer border-2 border-slate-800 hover:border-blue-600 transition-all duration-300" data-case="3">
                     <h3 class="text-xl font-bold mb-2">Создание AI-инфраструктуры (Infera.org)</h3>
                     <p class="text-slate-400 mb-4">Разработка с нуля децентрализованной P2P-сети для AI-вычислений и запуск на ней автономного агента.</p>
                     <div class="case-details" id="case-details-3">
@@ -205,7 +243,7 @@
                     </div>
                 </div>
 
-                <div class="case-card bg-slate-800/50 p-6 rounded-2xl shadow-lg cursor-pointer border-2 border-slate-800 hover:border-blue-600 transition-all duration-300" data-case="4">
+                <div id="bots-card" class="case-card bg-slate-800/50 p-6 rounded-2xl shadow-lg cursor-pointer border-2 border-slate-800 hover:border-blue-600 transition-all duration-300" data-case="4">
                     <h3 class="text-xl font-bold mb-2">Готовые B2B/B2C продукты (Telegram-боты)</h3>
                     <p class="text-slate-400 mb-4">Запуск с нуля Telegram-ботов, решающих конкретные задачи пользователей и бизнеса.</p>
                     <div class="case-details" id="case-details-4">
