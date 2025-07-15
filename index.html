@@ -74,12 +74,6 @@
             position: relative;
             z-index: 1;
         }
-        .case-card h3 {
-            color: #1e293b; /* slate-800 */
-        }
-        .case-card p {
-            color: #475569; /* slate-600 */
-        }
         #flagship { --bg-image: url(bg-flagship.svg); }
         #seo-card { --bg-image: url(bg-seo.svg); }
         #market-card { --bg-image: url(bg-market.svg); }
@@ -98,7 +92,7 @@
         }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-300 antialiased" style="--x: 50%; --y: 50%;">
+<body class="bg-slate-900 text-slate-200 antialiased" style="--x: 50%; --y: 50%;">
 
     <div id="background-effect"></div>
 
@@ -145,7 +139,7 @@
             </div>
         </section>
 
-        <section id="flagship" class="case-card relative py-16 bg-slate-800/50 rounded-2xl shadow-lg border border-slate-800 overflow-hidden">
+        <section id="flagship" class="case-card relative py-16 bg-slate-800/80 rounded-2xl shadow-lg border border-slate-800 overflow-hidden">
             <div class="relative z-10">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-100">Флагманский проект: Платформа "News Automation"</h2>
@@ -202,9 +196,9 @@
             </div>
             <div class="grid md:grid-cols-2 gap-8">
                 
-                <div id="seo-card" class="case-card bg-slate-800/50 p-6 rounded-2xl shadow-lg cursor-pointer border-2 border-slate-800 hover:border-blue-600 transition-all duration-300" data-case="1">
-                    <h3 class="text-xl font-bold mb-2">AI SEO-генератор (Проект под NDA)</h3>
-                    <p class="text-slate-400 mb-4">Автоматизация создания SEO-контента для тысяч страниц сайта, включая статьи и карточки товаров.</p>
+                <div id="seo-card" class="case-card bg-slate-800/80 p-6 rounded-2xl shadow-lg cursor-pointer border-2 border-slate-800 hover:border-blue-600 transition-all duration-300" data-case="1">
+                    <h3 class="text-xl font-bold text-slate-100 mb-2">AI SEO-генератор (Проект под NDA)</h3>
+                    <p class="text-slate-300 mb-4">Автоматизация создания SEO-контента для тысяч страниц сайта, включая статьи и карточки товаров.</p>
                     <div class="case-details" id="case-details-1">
                         <div class="border-t border-slate-200 pt-4 mt-4">
                             <h4 class="font-semibold mb-2">Суть решения:</h4>
@@ -227,9 +221,9 @@
                     </div>
                 </div>
 
-                <div id="market-card" class="case-card bg-slate-800/50 p-6 rounded-2xl shadow-lg cursor-pointer border-2 border-slate-800 hover:border-blue-600 transition-all duration-300" data-case="2">
-                    <h3 class="text-xl font-bold mb-2">AI-аналитик рынка (Проект под NDA)</h3>
-                    <p class="text-slate-400 mb-4">Создание платформы для мониторинга конкурентов: цен, акций и продуктовых новинок.</p>
+                <div id="market-card" class="case-card bg-slate-800/80 p-6 rounded-2xl shadow-lg cursor-pointer border-2 border-slate-800 hover:border-blue-600 transition-all duration-300" data-case="2">
+                    <h3 class="text-xl font-bold text-slate-100 mb-2">AI-аналитик рынка (Проект под NDA)</h3>
+                    <p class="text-slate-300 mb-4">Создание платформы для мониторинга конкурентов: цен, акций и продуктовых новинок.</p>
                     <div class="case-details" id="case-details-2">
                         <div class="border-t border-slate-200 pt-4 mt-4">
                             <h4 class="font-semibold mb-2">Суть решения:</h4>
@@ -248,9 +242,9 @@
                     </div>
                 </div>
 
-                <div id="infra-card" class="case-card bg-slate-800/50 p-6 rounded-2xl shadow-lg cursor-pointer border-2 border-slate-800 hover:border-blue-600 transition-all duration-300" data-case="3">
-                    <h3 class="text-xl font-bold mb-2">Создание AI-инфраструктуры (Infera.org)</h3>
-                    <p class="text-slate-400 mb-4">Разработка с нуля децентрализованной P2P-сети для AI-вычислений и запуск на ней автономного агента.</p>
+                <div id="infra-card" class="case-card bg-slate-800/80 p-6 rounded-2xl shadow-lg cursor-pointer border-2 border-slate-800 hover:border-blue-600 transition-all duration-300" data-case="3">
+                    <h3 class="text-xl font-bold text-slate-100 mb-2">Создание AI-инфраструктуры (Infera.org)</h3>
+                    <p class="text-slate-300 mb-4">Разработка с нуля децентрализованной P2P-сети для AI-вычислений и запуск на ней автономного агента.</p>
                     <div class="case-details" id="case-details-3">
                         <div class="border-t border-slate-200 pt-4 mt-4">
                              <h4 class="font-semibold mb-2">Суть решения:</h4>
@@ -268,9 +262,9 @@
                     </div>
                 </div>
 
-                <div id="bots-card" class="case-card bg-slate-800/50 p-6 rounded-2xl shadow-lg cursor-pointer border-2 border-slate-800 hover:border-blue-600 transition-all duration-300" data-case="4">
-                    <h3 class="text-xl font-bold mb-2">Готовые B2B/B2C продукты (Telegram-боты)</h3>
-                    <p class="text-slate-400 mb-4">Запуск с нуля Telegram-ботов, решающих конкретные задачи пользователей и бизнеса.</p>
+                <div id="bots-card" class="case-card bg-slate-800/80 p-6 rounded-2xl shadow-lg cursor-pointer border-2 border-slate-800 hover:border-blue-600 transition-all duration-300" data-case="4">
+                    <h3 class="text-xl font-bold text-slate-100 mb-2">Готовые B2B/B2C продукты (Telegram-боты)</h3>
+                    <p class="text-slate-300 mb-4">Запуск с нуля Telegram-ботов, решающих конкретные задачи пользователей и бизнеса.</p>
                     <div class="case-details" id="case-details-4">
                         <div class="border-t border-slate-200 pt-4 mt-4">
                             <h4 class="font-semibold mb-2">Суть решения:</h4>
