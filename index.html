@@ -73,16 +73,22 @@
             position: relative;
             z-index: 1;
         }
-        #flagship::before { background-image: url('/bg-flagship.svg'); }
-        #seo-card::before { background-image: url('/bg-seo.svg'); }
-        #market-card::before { background-image: url('/bg-market.svg'); }
-        #infra-card::before { background-image: url('/bg-infra.svg'); }
-        #bots-card::before { background-image: url('/bg-bots.svg'); }
+        #flagship::before { background-image: url('assets/bg-flagship.svg'); }
+        #seo-card::before { background-image: url('assets/bg-seo.svg'); }
+        #market-card::before { background-image: url('assets/bg-market.svg'); }
+        #infra-card::before { background-image: url('assets/bg-infra.svg'); }
+        #bots-card::before { background-image: url('assets/bg-bots.svg'); }
 
         .case-details { max-height: 0; overflow: hidden; transition: max-height 0.7s ease-in-out; }
         .case-details.open { max-height: 1000px; }
         .flow-arrow::after { content: '→'; color: #9CA3AF; font-size: 2rem; margin: 0 1rem; }
         .flow-step:last-child .flow-arrow::after { content: ''; }
+
+        @media (max-width: 768px) {
+            .case-card::before {
+                background-position: center;
+            }
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-300 antialiased" style="--x: 50%; --y: 50%;">
