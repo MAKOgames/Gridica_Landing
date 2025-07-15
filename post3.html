@@ -15,6 +15,20 @@
             font-family: 'Inter', sans-serif; 
             background-color: #020617;
         }
+        #background-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                radial-gradient(circle at var(--x) var(--y), rgba(29, 78, 216, 0.15), transparent 20%);
+            background-size: 20px 20px, 100% 100%;
+            background-repeat: repeat, no-repeat;
+            transition: background-position 0.2s ease-out;
+        }
         .prose {
             color: #d1d5db; /* slate-300 */
             line-height: 1.75;
@@ -68,9 +82,11 @@
         }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-300 antialiased">
+<body class="bg-slate-900 text-slate-300 antialiased" style="--x: 50%; --y: 50%;">
 
-    <header class="bg-slate-900/80 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-800">
+    <div id="background-effect"></div>
+
+    <header id="main-header" class="bg-slate-900/80 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-800 transition-transform duration-300">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold text-slate-200">
                 Gridica<span class="text-blue-500">.</span>
@@ -184,6 +200,8 @@
             const sidebarContent = document.getElementById('sidebar-content');
             const sidebarTitle = document.getElementById('sidebar-title');
             const accordions = document.querySelectorAll('.accordion-header');
+            const header = document.getElementById('main-header');
+            let lastScrollTop = 0;
 
             const toggleSidebar = () => {
                 const isCollapsed = sidebar.classList.contains('w-16');
@@ -234,6 +252,23 @@
                         icon.style.transform = 'rotate(180deg)';
                     }
                 });
+            });
+
+            window.addEventListener('scroll', () => {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop) {
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    header.style.transform = 'translateY(0)';
+                }
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            });
+
+            const background = document.getElementById('background-effect');
+            window.addEventListener('mousemove', (e) => {
+                const { clientX, clientY } = e;
+                background.style.setProperty('--x', `${clientX}px`);
+                background.style.setProperty('--y', `${clientY}px`);
             });
         });
     </script>
