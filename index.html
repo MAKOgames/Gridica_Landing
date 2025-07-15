@@ -73,11 +73,11 @@
             position: relative;
             z-index: 1;
         }
-        #flagship::before { background-image: url('/bg-flagship.svg'); }
-        #seo-card::before { background-image: url('/bg-seo.svg'); }
-        #market-card::before { background-image: url('/bg-market.svg'); }
-        #infra-card::before { background-image: url('/bg-infra.svg'); }
-        #bots-card::before { background-image: url('/bg-bots.svg'); }
+        #flagship::before { background-image: url('assets/bg-flagship.svg'); }
+        #seo-card::before { background-image: url('assets/bg-seo.svg'); }
+        #market-card::before { background-image: url('assets/bg-market.svg'); }
+        #infra-card::before { background-image: url('assets/bg-infra.svg'); }
+        #bots-card::before { background-image: url('assets/bg-bots.svg'); }
 
         .case-details { max-height: 0; overflow: hidden; transition: max-height 0.7s ease-in-out; }
         .case-details.open { max-height: 1000px; }
@@ -304,17 +304,24 @@
                 card.addEventListener('click', () => {
                     const caseId = card.dataset.case;
                     const detailsEl = document.getElementById(`case-details-${caseId}`);
-                    
-                    if (card.classList.contains('active')) {
-                        card.classList.remove('active');
-                        detailsEl.classList.remove('open');
-                    } else {
-                        caseCards.forEach(c => {
-                            c.classList.remove('active');
-                            c.querySelector('.case-details').classList.remove('open');
-                        });
+                    const isActive = card.classList.contains('active');
+
+                    // Close all cards
+                    caseCards.forEach(c => {
+                        c.classList.remove('active');
+                        const detailsId = c.dataset.case;
+                        const details = document.getElementById(`case-details-${detailsId}`);
+                        if (details) {
+                            details.classList.remove('open');
+                        }
+                    });
+
+                    // If the clicked card was not active, open it
+                    if (!isActive) {
                         card.classList.add('active');
-                        detailsEl.classList.add('open');
+                        if (detailsEl) {
+                            detailsEl.classList.add('open');
+                        }
 
                         if (caseId === '1' && !document.getElementById('seoChart').chart) {
                             renderSeoChart();
