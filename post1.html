@@ -15,6 +15,20 @@
             font-family: 'Inter', sans-serif; 
             background-color: #020617;
         }
+        #background-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                radial-gradient(circle at var(--x) var(--y), rgba(29, 78, 216, 0.15), transparent 20%);
+            background-size: 20px 20px, 100% 100%;
+            background-repeat: repeat, no-repeat;
+            transition: background-position 0.2s ease-out;
+        }
         .prose {
             color: #d1d5db; /* slate-300 */
             line-height: 1.75;
