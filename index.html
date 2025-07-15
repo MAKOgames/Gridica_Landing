@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Gridica Consult: Проектирование и разработка промышленных AI-решений. Автоматизируем бизнес-процессы с помощью AI, создаем AI-аналитиков, SEO-генераторы и Telegram-ботов.">
     <title>Gridica Consult: Проектирование промышленных AI-решений</title>
-    <link rel="icon" href="https://www.gridica.network/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -85,40 +85,48 @@
         </section>
 
         <section id="flagship" class="py-16 bg-slate-800/50 rounded-2xl shadow-lg border border-slate-800">
-            <div class="text-center mb-12">
+            <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-100">Флагманский проект: Платформа "News Automation"</h2>
                 <p class="mt-4 text-slate-400 max-w-2xl mx-auto">Мы спроектировали полную замену отдела райтеров — автоматизированную AI-фабрику новостей.</p>
             </div>
-            <div class="flex flex-wrap items-center justify-center text-center">
-                <div class="flow-step p-4">
-                    <div class="bg-slate-700/50 rounded-lg p-4">
-                        <h3 class="font-semibold text-slate-200">Источники</h3>
-                        <p class="text-sm text-slate-400">TG-каналы, Сайты</p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
+                <!-- Step 1: Источники -->
+                <div class="flow-step flex flex-col items-center text-center p-4">
+                    <div class="flex items-center justify-center w-16 h-16 bg-slate-700/50 rounded-full border border-slate-600 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 1.1.9 2 2 2h12a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H6a2 2 0 00-2 2z" /></svg>
                     </div>
+                    <h3 class="font-semibold text-slate-200">Источники</h3>
+                    <p class="text-sm text-slate-400">TG-каналы, Сайты</p>
                 </div>
-                <div class="flow-arrow hidden md:block"></div>
-                <div class="flow-step p-4">
-                     <div class="bg-slate-700/50 rounded-lg p-4">
-                        <h3 class="font-semibold text-slate-200">Парсинг и Цензура</h3>
-                        <p class="text-sm text-slate-400">Фильтрация контента</p>
+                <div class="flow-arrow hidden md:block text-slate-600 text-4xl mx-4">→</div>
+                <!-- Step 2: Парсинг -->
+                <div class="flow-step flex flex-col items-center text-center p-4">
+                    <div class="flex items-center justify-center w-16 h-16 bg-slate-700/50 rounded-full border border-slate-600 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                     </div>
+                    <h3 class="font-semibold text-slate-200">Парсинг и Цензура</h3>
+                    <p class="text-sm text-slate-400">Фильтрация контента</p>
                 </div>
-                <div class="flow-arrow hidden md:block"></div>
-                <div class="flow-step p-4">
-                    <div class="bg-blue-500/20 border border-blue-500/30 rounded-lg p-4">
-                        <h3 class="font-semibold text-blue-400">AI-Рерайтинг</h3>
-                        <p class="text-sm text-blue-500">Генерация версий</p>
+                <div class="flow-arrow hidden md:block text-slate-600 text-4xl mx-4">→</div>
+                <!-- Step 3: AI-Рерайтинг -->
+                <div class="flow-step flex flex-col items-center text-center p-4">
+                    <div class="flex items-center justify-center w-16 h-16 bg-blue-500/20 rounded-full border border-blue-500/30 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.293 2.293a1 1 0 010 1.414L10 12l-2.293 2.293a1 1 0 01-1.414 0L4 12l2.293-2.293a1 1 0 011.414 0L10 12z" /></svg>
                     </div>
+                    <h3 class="font-semibold text-blue-400">AI-Рерайтинг</h3>
+                    <p class="text-sm text-blue-500">Генерация версий</p>
                 </div>
-                <div class="flow-arrow hidden md:block"></div>
-                <div class="flow-step p-4">
-                    <div class="bg-slate-700/50 rounded-lg p-4">
-                        <h3 class="font-semibold text-slate-200">Кабинет Редактора</h3>
-                         <p class="text-sm text-slate-400">Модерация и управление</p>
+                <div class="flow-arrow hidden md:block text-slate-600 text-4xl mx-4">→</div>
+                <!-- Step 4: Кабинет Редактора -->
+                <div class="flow-step flex flex-col items-center text-center p-4">
+                    <div class="flex items-center justify-center w-16 h-16 bg-slate-700/50 rounded-full border border-slate-600 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
                     </div>
+                    <h3 class="font-semibold text-slate-200">Кабинет Редактора</h3>
+                    <p class="text-sm text-slate-400">Модерация и управление</p>
                 </div>
             </div>
-             <p class="text-center mt-8 text-slate-500">Это не просто идея, а готовая техническая спецификация — полный blueprint для разработки.</p>
+            <p class="text-center mt-12 text-slate-500">Это не просто идея, а готовая техническая спецификация — полный blueprint для разработки.</p>
         </section>
 
 
