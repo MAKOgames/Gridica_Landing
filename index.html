@@ -30,7 +30,26 @@
         - All choices adhere to NO SVG/Mermaid. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #020617; /* Dark background */
+        }
+
+        #background-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                radial-gradient(circle at var(--x) var(--y), rgba(29, 78, 216, 0.15), transparent 20%);
+            background-size: 20px 20px, 100% 100%;
+            background-repeat: repeat, no-repeat;
+            transition: background-position 0.2s ease-out;
+        }
+
         .chart-container { position: relative; width: 100%; max-width: 300px; margin-left: auto; margin-right: auto; height: 300px; max-height: 300px; }
         .case-card.active { border-color: #2563EB; transform: translateY(-5px); }
         .case-details { max-height: 0; overflow: hidden; transition: max-height 0.7s ease-in-out; }
@@ -39,18 +58,20 @@
         .flow-step:last-child .flow-arrow::after { content: ''; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased">
+<body class="bg-slate-900 text-slate-300 antialiased" style="--x: 50%; --y: 50%;">
 
-    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-200">
+    <div id="background-effect"></div>
+
+    <header class="bg-slate-900/80 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-800">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-slate-900">
-                Gridica<span class="text-blue-600">.</span>
+            <div class="text-2xl font-bold text-slate-200">
+                Gridica<span class="text-blue-500">.</span>
             </div>
             <div class="hidden md:flex space-x-8">
-                <a href="#portfolio" class="text-slate-600 hover:text-blue-600 transition">Портфолио</a>
-                <a href="#process" class="text-slate-600 hover:text-blue-600 transition">Процесс</a>
-                <a href="https://gridica.gitbook.io/v1/" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-blue-600 transition">Документация</a>
-                <a href="#contact" class="text-slate-600 hover:text-blue-600 transition">Контакты</a>
+                <a href="#portfolio" class="text-slate-400 hover:text-blue-500 transition">Портфолио</a>
+                <a href="#process" class="text-slate-400 hover:text-blue-500 transition">Процесс</a>
+                <a href="https://gridica.gitbook.io/v1/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-blue-500 transition">Документация</a>
+                <a href="#contact" class="text-slate-400 hover:text-blue-500 transition">Контакты</a>
             </div>
             <a href="#contact" class="hidden md:block bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition">Обсудить задачу</a>
         </nav>
@@ -59,41 +80,41 @@
     <main class="container mx-auto px-6">
 
         <section id="hero" class="text-center py-20 md:py-32">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Проектируем и создаем<br>промышленные <span class="text-blue-600">AI-решения</span></h1>
-            <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">Мы строим надежные, автоматизированные системы, которые становятся ядром вашего бизнеса. Наш подход — это инженерия, а не «творчество».</p>
+            <h1 class="text-4xl md:text-6xl font-bold text-slate-100 mb-4 leading-tight">Проектируем и создаем<br>промышленные <span class="text-blue-500">AI-решения</span></h1>
+            <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">Мы строим надежные, автоматизированные системы, которые становятся ядром вашего бизнеса. Наш подход — это инженерия, а не «творчество».</p>
         </section>
 
-        <section id="flagship" class="py-16 bg-white rounded-2xl shadow-sm">
+        <section id="flagship" class="py-16 bg-slate-800/50 rounded-2xl shadow-lg border border-slate-800">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold">Флагманский проект: Платформа "News Automation"</h2>
-                <p class="mt-4 text-slate-600 max-w-2xl mx-auto">Мы спроектировали полную замену отдела райтеров — автоматизированную AI-фабрику новостей.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-100">Флагманский проект: Платформа "News Automation"</h2>
+                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">Мы спроектировали полную замену отдела райтеров — автоматизированную AI-фабрику новостей.</p>
             </div>
             <div class="flex flex-wrap items-center justify-center text-center">
                 <div class="flow-step p-4">
-                    <div class="bg-slate-100 rounded-lg p-4">
-                        <h3 class="font-semibold">Источники</h3>
-                        <p class="text-sm text-slate-500">TG-каналы, Сайты</p>
+                    <div class="bg-slate-700/50 rounded-lg p-4">
+                        <h3 class="font-semibold text-slate-200">Источники</h3>
+                        <p class="text-sm text-slate-400">TG-каналы, Сайты</p>
                     </div>
                 </div>
                 <div class="flow-arrow hidden md:block"></div>
                 <div class="flow-step p-4">
-                     <div class="bg-slate-100 rounded-lg p-4">
-                        <h3 class="font-semibold">Парсинг и Цензура</h3>
-                        <p class="text-sm text-slate-500">Фильтрация контента</p>
+                     <div class="bg-slate-700/50 rounded-lg p-4">
+                        <h3 class="font-semibold text-slate-200">Парсинг и Цензура</h3>
+                        <p class="text-sm text-slate-400">Фильтрация контента</p>
                     </div>
                 </div>
                 <div class="flow-arrow hidden md:block"></div>
                 <div class="flow-step p-4">
-                    <div class="bg-blue-100 border border-blue-200 rounded-lg p-4">
-                        <h3 class="font-semibold text-blue-800">AI-Рерайтинг</h3>
-                        <p class="text-sm text-blue-600">Генерация версий</p>
+                    <div class="bg-blue-500/20 border border-blue-500/30 rounded-lg p-4">
+                        <h3 class="font-semibold text-blue-400">AI-Рерайтинг</h3>
+                        <p class="text-sm text-blue-500">Генерация версий</p>
                     </div>
                 </div>
                 <div class="flow-arrow hidden md:block"></div>
                 <div class="flow-step p-4">
-                    <div class="bg-slate-100 rounded-lg p-4">
-                        <h3 class="font-semibold">Кабинет Редактора</h3>
-                         <p class="text-sm text-slate-500">Модерация и управление</p>
+                    <div class="bg-slate-700/50 rounded-lg p-4">
+                        <h3 class="font-semibold text-slate-200">Кабинет Редактора</h3>
+                         <p class="text-sm text-slate-400">Модерация и управление</p>
                     </div>
                 </div>
             </div>
@@ -103,92 +124,92 @@
 
         <section id="portfolio" class="py-24">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold">Наше портфолио: решенные бизнес-задачи</h2>
-                <p class="mt-4 text-slate-600 max-w-2xl mx-auto">Мы применяем наши навыки для решения широкого спектра задач: от маркетинга до стратегического анализа и создания IT-инфраструктуры. Нажмите на карточку, чтобы узнать больше.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-100">Наше портфолио: решенные бизнес-задачи</h2>
+                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">Мы применяем наши навыки для решения широкого спектра задач: от маркетинга до стратегического анализа и создания IT-инфраструктуры. Нажмите на карточку, чтобы узнать больше.</p>
             </div>
             <div class="grid md:grid-cols-2 gap-8">
                 
-                <div class="case-card bg-white p-6 rounded-2xl shadow-sm cursor-pointer border-2 border-transparent hover:border-blue-500/50 transition-all duration-300" data-case="1">
+                <div class="case-card bg-slate-800/50 p-6 rounded-2xl shadow-lg cursor-pointer border-2 border-slate-800 hover:border-blue-600 transition-all duration-300" data-case="1">
                     <h3 class="text-xl font-bold mb-2">AI SEO-генератор (Проект под NDA)</h3>
-                    <p class="text-slate-600 mb-4">Автоматизация создания SEO-контента для тысяч страниц сайта, включая статьи и карточки товаров.</p>
+                    <p class="text-slate-400 mb-4">Автоматизация создания SEO-контента для тысяч страниц сайта, включая статьи и карточки товаров.</p>
                     <div class="case-details" id="case-details-1">
                         <div class="border-t border-slate-200 pt-4 mt-4">
                             <h4 class="font-semibold mb-2">Суть решения:</h4>
-                            <p class="text-sm text-slate-600 mb-4">Разработана система, которая автоматически генерирует SEO-оптимизированный контент. Система анализирует ключевые слова и создает уникальные, структурированные тексты.</p>
+                            <p class="text-sm text-slate-400 mb-4">Разработана система, которая автоматически генерирует SEO-оптимизированный контент. Система анализирует ключевые слова и создает уникальные, структурированные тексты.</p>
                             <h4 class="font-semibold mb-2">Результат:</h4>
                             <div class="flex items-center space-x-4">
                                <div class="chart-container">
                                     <canvas id="seoChart"></canvas>
                                 </div>
-                                <p class="text-sm text-slate-600 flex-1">Сокращение ручного труда копирайтеров на 90%, значительное повышение видимости сайта в поисковых системах.</p>
+                                <p class="text-sm text-slate-400 flex-1">Сокращение ручного труда копирайтеров на 90%, значительное повышение видимости сайта в поисковых системах.</p>
                             </div>
                             <h4 class="font-semibold mt-4 mb-2">Ключевые технологии:</h4>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-1 rounded-full">LLMs (GPT)</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-1 rounded-full">FastAPI</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-1 rounded-full">PostgreSQL</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-1 rounded-full">React</span>
+                                <span class="bg-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">LLMs (GPT)</span>
+                                <span class="bg-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">FastAPI</span>
+                                <span class="bg-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">PostgreSQL</span>
+                                <span class="bg-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">React</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="case-card bg-white p-6 rounded-2xl shadow-sm cursor-pointer border-2 border-transparent hover:border-blue-500/50 transition-all duration-300" data-case="2">
+                <div class="case-card bg-slate-800/50 p-6 rounded-2xl shadow-lg cursor-pointer border-2 border-slate-800 hover:border-blue-600 transition-all duration-300" data-case="2">
                     <h3 class="text-xl font-bold mb-2">AI-аналитик рынка (Проект под NDA)</h3>
-                    <p class="text-slate-600 mb-4">Создание платформы для мониторинга конкурентов: цен, акций и продуктовых новинок.</p>
+                    <p class="text-slate-400 mb-4">Создание платформы для мониторинга конкурентов: цен, акций и продуктовых новинок.</p>
                     <div class="case-details" id="case-details-2">
                         <div class="border-t border-slate-200 pt-4 mt-4">
                             <h4 class="font-semibold mb-2">Суть решения:</h4>
-                            <p class="text-sm text-slate-600 mb-4">Создана платформа, которая 24/7 парсит сайты конкурентов. AI-модуль анализирует собранную информацию, выявляет тренды и формирует стратегические отчеты для руководства.</p>
+                            <p class="text-sm text-slate-400 mb-4">Создана платформа, которая 24/7 парсит сайты конкурентов. AI-модуль анализирует собранную информацию, выявляет тренды и формирует стратегические отчеты для руководства.</p>
                              <h4 class="font-semibold mb-2">Результат:</h4>
-                            <p class="text-sm text-slate-600 mb-4">Клиент получает оперативные инсайты о действиях конкурентов, что позволяет быстро адаптировать свою ценовую и продуктовую стратегию.</p>
+                            <p class="text-sm text-slate-400 mb-4">Клиент получает оперативные инсайты о действиях конкурентов, что позволяет быстро адаптировать свою ценовую и продуктовую стратегию.</p>
                             <h4 class="font-semibold mb-2">Ключевые технологии:</h4>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-1 rounded-full">Python (Scrapy)</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-1 rounded-full">ClickHouse</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-1 rounded-full">FastAPI</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-1 rounded-full">React</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-1 rounded-full">Chart.js</span>
+                                <span class="bg-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Python (Scrapy)</span>
+                                <span class="bg-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">ClickHouse</span>
+                                <span class="bg-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">FastAPI</span>
+                                <span class="bg-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">React</span>
+                                <span class="bg-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Chart.js</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="case-card bg-white p-6 rounded-2xl shadow-sm cursor-pointer border-2 border-transparent hover:border-blue-500/50 transition-all duration-300" data-case="3">
+                <div class="case-card bg-slate-800/50 p-6 rounded-2xl shadow-lg cursor-pointer border-2 border-slate-800 hover:border-blue-600 transition-all duration-300" data-case="3">
                     <h3 class="text-xl font-bold mb-2">Создание AI-инфраструктуры (Infera.org)</h3>
-                    <p class="text-slate-600 mb-4">Разработка с нуля децентрализованной P2P-сети для AI-вычислений и запуск на ней автономного агента.</p>
+                    <p class="text-slate-400 mb-4">Разработка с нуля децентрализованной P2P-сети для AI-вычислений и запуск на ней автономного агента.</p>
                     <div class="case-details" id="case-details-3">
                         <div class="border-t border-slate-200 pt-4 mt-4">
                              <h4 class="font-semibold mb-2">Суть решения:</h4>
-                            <p class="text-sm text-slate-600 mb-4">Разработана с нуля децентрализованная P2P-сеть для AI-вычислений, объединяющая GPU-мощности по всему миру. На этой платформе запущен полностью автономный AI-агент, самостоятельно ведущий социальные сети.</p>
+                            <p class="text-sm text-slate-400 mb-4">Разработана с нуля децентрализованная P2P-сеть для AI-вычислений, объединяющая GPU-мощности по всему миру. На этой платформе запущен полностью автономный AI-агент, самостоятельно ведущий социальные сети.</p>
                             <h4 class="font-semibold mb-2">Результат:</h4>
-                            <p class="text-sm text-slate-600 mb-4">Доказана способность строить не только приложения, но и фундаментальную, отказоустойчивую инфраструктуру для них.</p>
+                            <p class="text-sm text-slate-400 mb-4">Доказана способность строить не только приложения, но и фундаментальную, отказоустойчивую инфраструктуру для них.</p>
                             <h4 class="font-semibold mb-2">Ключевые технологии:</h4>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-1 rounded-full">Python (P2P)</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-1 rounded-full">FastAPI</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-1 rounded-full">Docker</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-1 rounded-full">LangChain</span>
+                                <span class="bg-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Python (P2P)</span>
+                                <span class="bg-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">FastAPI</span>
+                                <span class="bg-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Docker</span>
+                                <span class="bg-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">LangChain</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="case-card bg-white p-6 rounded-2xl shadow-sm cursor-pointer border-2 border-transparent hover:border-blue-500/50 transition-all duration-300" data-case="4">
+                <div class="case-card bg-slate-800/50 p-6 rounded-2xl shadow-lg cursor-pointer border-2 border-slate-800 hover:border-blue-600 transition-all duration-300" data-case="4">
                     <h3 class="text-xl font-bold mb-2">Готовые B2B/B2C продукты (Telegram-боты)</h3>
-                    <p class="text-slate-600 mb-4">Запуск с нуля Telegram-ботов, решающих конкретные задачи пользователей и бизнеса.</p>
+                    <p class="text-slate-400 mb-4">Запуск с нуля Telegram-ботов, решающих конкретные задачи пользователей и бизнеса.</p>
                     <div class="case-details" id="case-details-4">
                         <div class="border-t border-slate-200 pt-4 mt-4">
                             <h4 class="font-semibold mb-2">Суть решения:</h4>
-                            <p class="text-sm text-slate-600 mb-4">Запущены с нуля несколько Telegram-ботов (@NutryScanBot, @XtrackerRepo_bot), решающих конкретные задачи пользователей: от анализа состава продуктов по фото до управления Telegram-каналами.</p>
+                            <p class="text-sm text-slate-400 mb-4">Запущены с нуля несколько Telegram-ботов (@NutryScanBot, @XtrackerRepo_bot), решающих конкретные задачи пользователей: от анализа состава продуктов по фото до управления Telegram-каналами.</p>
                             <h4 class="font-semibold mb-2">Результат:</h4>
-                            <p class="text-sm text-slate-600 mb-4">Подтвержден опыт полного цикла разработки: от идеи и прототипа до запуска, поддержки и монетизации готового продукта.</p>
+                            <p class="text-sm text-slate-400 mb-4">Подтвержден опыт полного цикла разработки: от идеи и прототипа до запуска, поддержки и монетизации готового продукта.</p>
                             <h4 class="font-semibold mb-2">Ключевые технологии:</h4>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-1 rounded-full">Python (AIOgram)</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-1 rounded-full">PostgreSQL</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-1 rounded-full">OCR</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-1 rounded-full">API-интеграции</span>
+                                <span class="bg-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Python (AIOgram)</span>
+                                <span class="bg-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">PostgreSQL</span>
+                                <span class="bg-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">OCR</span>
+                                <span class="bg-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">API-интеграции</span>
                             </div>
                         </div>
                     </div>
@@ -198,24 +219,24 @@
 
         <section id="process" class="py-24">
              <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold">От идеи к результату: как мы работаем</h2>
-                <p class="mt-4 text-slate-600 max-w-2xl mx-auto">Мы предлагаем прозрачное и структурированное партнерство.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-100">От идеи к результату: как мы работаем</h2>
+                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">Мы предлагаем прозрачное и структурированное партнерство.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8 text-center">
-                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                <div class="bg-slate-800/50 border border-slate-800 p-8 rounded-2xl shadow-lg">
                     <div class="text-3xl font-bold text-blue-600 mb-4">1</div>
                     <h3 class="text-xl font-semibold mb-2">Технический аудит и проектирование</h3>
-                    <p class="text-slate-600">Начинаем с глубокого анализа вашей задачи. Результат — детальный документ с описанием архитектуры и плана действий. Этот этап является первым шагом проекта и оплачивается отдельно.</p>
+                    <p class="text-slate-400">Начинаем с глубокого анализа вашей задачи. Результат — детальный документ с описанием архитектуры и плана действий. Этот этап является первым шагом проекта и оплачивается отдельно.</p>
                 </div>
-                 <div class="bg-white p-8 rounded-2xl shadow-sm">
+                 <div class="bg-slate-800/50 border border-slate-800 p-8 rounded-2xl shadow-lg">
                     <div class="text-3xl font-bold text-blue-600 mb-4">2</div>
                     <h3 class="text-xl font-semibold mb-2">Гибкая реализация</h3>
-                    <p class="text-slate-600">Предлагаем несколько путей — от быстрого MVP для проверки ключевой гипотезы до пошаговой разработки полнофункциональной системы.</p>
+                    <p class="text-slate-400">Предлагаем несколько путей — от быстрого MVP для проверки ключевой гипотезы до пошаговой разработки полнофункциональной системы.</p>
                 </div>
-                 <div class="bg-white p-8 rounded-2xl shadow-sm">
+                 <div class="bg-slate-800/50 border border-slate-800 p-8 rounded-2xl shadow-lg">
                     <div class="text-3xl font-bold text-blue-600 mb-4">3</div>
                     <h3 class="text-xl font-semibold mb-2">Партнерство, а не подряд</h3>
-                    <p class="text-slate-600">Работаем итерациями, обеспечивая вам полный доступ к промежуточным результатам. Вы контролируете процесс на каждом этапе.</p>
+                    <p class="text-slate-400">Работаем итерациями, обеспечивая вам полный доступ к промежуточным результатам. Вы контролируете процесс на каждом этапе.</p>
                 </div>
             </div>
         </section>
@@ -308,6 +329,13 @@
                     });
                 });
             });
+        });
+
+        const background = document.getElementById('background-effect');
+        window.addEventListener('mousemove', (e) => {
+            const { clientX, clientY } = e;
+            background.style.setProperty('--x', `${clientX}px`);
+            background.style.setProperty('--y', `${clientY}px`);
         });
     </script>
 
