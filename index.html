@@ -65,6 +65,7 @@
             opacity: 0.1;
             z-index: 0;
             transition: opacity 0.3s ease-in-out;
+            background-image: linear-gradient(to top, rgba(2, 6, 23, 0.7), transparent), var(--bg-image);
         }
         .case-card:hover::before {
             opacity: 0.2;
@@ -73,11 +74,11 @@
             position: relative;
             z-index: 1;
         }
-        #flagship::before { background-image: url('/bg-flagship.svg'); }
-        #seo-card::before { background-image: url('/bg-seo.svg'); }
-        #market-card::before { background-image: url('/bg-market.svg'); }
-        #infra-card::before { background-image: url('/bg-infra.svg'); }
-        #bots-card::before { background-image: url('/bg-bots.svg'); }
+        #flagship { --bg-image: url('bg-flagship.svg'); }
+        #seo-card { --bg-image: url('bg-seo.svg'); }
+        #market-card { --bg-image: url('bg-market.svg'); }
+        #infra-card { --bg-image: url('bg-infra.svg'); }
+        #bots-card { --bg-image: url('bg-bots.svg'); }
 
         .case-details { max-height: 0; overflow: hidden; transition: max-height 0.7s ease-in-out; }
         .case-details.open { max-height: 1000px; }
@@ -135,9 +136,6 @@
                     <h3 class="text-xl font-bold text-blue-400 mb-4">Поддержка и развитие</h3>
                     <p class="text-slate-400">Обеспечиваем стабильную работу AI-систем, проводим мониторинг и дообучение моделей, развиваем функциональность.</p>
                 </div>
-            </div>
-            <div class="text-center mt-16">
-                <img src="https://z-union.ru/wp-content/uploads/2023/11/alrii.svg" alt="Резидент АЛРИИ" class="h-16 mx-auto">
             </div>
         </section>
 
@@ -321,6 +319,9 @@
                      <a href="mailto:vladislaw.klymenko@yandex.ru" class="hover:text-blue-400 transition">vladislaw.klymenko@yandex.ru</a> | 
                      <a href="https://t.me/juicyklim" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition">Телеграм</a>
                  </p>
+             </div>
+             <div class="mt-12">
+                <img src="https://z-union.ru/wp-content/uploads/2023/11/alrii.svg" alt="Резидент АЛРИИ" class="h-12 mx-auto">
              </div>
              <p class="text-xs text-slate-500 mt-16">&copy; 2025 Gridica Consult. Все права защищены.</p>
         </div>
