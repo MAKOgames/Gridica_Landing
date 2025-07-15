@@ -74,11 +74,17 @@
             position: relative;
             z-index: 1;
         }
-        #flagship { --bg-image: url('bg-flagship.svg'); }
-        #seo-card { --bg-image: url('bg-seo.svg'); }
-        #market-card { --bg-image: url('bg-market.svg'); }
-        #infra-card { --bg-image: url('bg-infra.svg'); }
-        #bots-card { --bg-image: url('bg-bots.svg'); }
+        .case-card h3 {
+            color: #1e293b; /* slate-800 */
+        }
+        .case-card p {
+            color: #475569; /* slate-600 */
+        }
+        #flagship { --bg-image: url(bg-flagship.svg); }
+        #seo-card { --bg-image: url(bg-seo.svg); }
+        #market-card { --bg-image: url(bg-market.svg); }
+        #infra-card { --bg-image: url(bg-infra.svg); }
+        #bots-card { --bg-image: url(bg-bots.svg); }
 
         .case-details { max-height: 0; overflow: hidden; transition: max-height 0.7s ease-in-out; }
         .case-details.open { max-height: 1000px; }
@@ -125,15 +131,15 @@
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-slate-800/50 p-8 rounded-2xl shadow-lg border border-slate-800">
-                    <h3 class="text-xl font-bold text-blue-400 mb-4">Проектирование и R&D</h3>
+                    <h3 class="text-xl font-bold text-slate-200 mb-4">Проектирование и R&D</h3>
                     <p class="text-slate-400">Проводим глубокий анализ бизнес-процессов и разрабатываем техническую спецификацию для будущего AI-решения. Исследуем и тестируем гипотезы.</p>
                 </div>
                 <div class="bg-slate-800/50 p-8 rounded-2xl shadow-lg border border-slate-800">
-                    <h3 class="text-xl font-bold text-blue-400 mb-4">Разработка и внедрение</h3>
+                    <h3 class="text-xl font-bold text-slate-200 mb-4">Разработка и внедрение</h3>
                     <p class="text-slate-400">Создаем кастомные AI-модели, разрабатываем API и интегрируем решения в существующую IT-инфраструктуру компании.</p>
                 </div>
                 <div class="bg-slate-800/50 p-8 rounded-2xl shadow-lg border border-slate-800">
-                    <h3 class="text-xl font-bold text-blue-400 mb-4">Поддержка и развитие</h3>
+                    <h3 class="text-xl font-bold text-slate-200 mb-4">Поддержка и развитие</h3>
                     <p class="text-slate-400">Обеспечиваем стабильную работу AI-систем, проводим мониторинг и дообучение моделей, развиваем функциональность.</p>
                 </div>
             </div>
@@ -321,7 +327,7 @@
                  </p>
              </div>
              <div class="mt-12">
-                <img src="https://z-union.ru/wp-content/uploads/2023/11/alrii.svg" alt="Резидент АЛРИИ" class="h-12 mx-auto">
+                <p class="text-sm text-slate-400">Резидент АЛРИИ</p>
              </div>
              <p class="text-xs text-slate-500 mt-16">&copy; 2025 Gridica Consult. Все права защищены.</p>
         </div>
