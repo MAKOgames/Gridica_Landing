@@ -61,6 +61,11 @@
         #sidebar {
             transition: width 0.3s;
         }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-300 antialiased">
@@ -84,36 +89,52 @@
         <!-- Sidebar -->
         <aside id="sidebar" class="w-1/4 p-4 bg-slate-800/50 border-r border-slate-800">
             <div class="flex justify-between items-center mb-4">
-                <h2 class="text-lg font-semibold text-slate-200">Разделы</h2>
-                <button id="sidebar-toggle" class="md:hidden p-2">
+                <h2 class="text-lg font-semibold text-slate-200">Навигация по блогу</h2>
+                <button id="sidebar-toggle" class="p-2">
                     <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
             </div>
-            <h2 class="text-lg font-semibold text-slate-200 mb-4">Разделы</h2>
             <nav>
-                <div>
-                    <h3 class="font-semibold text-slate-300 mb-2">AI-Стратегия</h3>
-                    <ul>
-                        <li><a href="post1.html" class="sidebar-link">Как AI-консалтинг помогает экономить миллионы</a></li>
-                    </ul>
-                </div>
-                <div class="mt-4">
-                    <h3 class="font-semibold text-slate-300 mb-2">Машинное обучение</h3>
-                    <ul>
-                        <li><a href="post2.html" class="sidebar-link active">Топ-5 ошибок при внедрении ML</a></li>
-                    </ul>
-                </div>
-                <div class="mt-4">
-                    <h3 class="font-semibold text-slate-300 mb-2">NLP</h3>
-                    <ul>
-                        <li><a href="post3.html" class="sidebar-link">Анализ клиентских отзывов с помощью NLP</a></li>
-                    </ul>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header w-full text-left font-semibold text-slate-300 mb-2 flex justify-between items-center">
+                            <span>AI-Стратегия</span>
+                            <svg class="w-4 h-4 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content">
+                            <ul>
+                                <li><a href="post1.html" class="sidebar-link">Как AI-консалтинг помогает экономить миллионы</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item mt-4">
+                        <button class="accordion-header w-full text-left font-semibold text-slate-300 mb-2 flex justify-between items-center">
+                            <span>Машинное обучение</span>
+                            <svg class="w-4 h-4 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content">
+                            <ul>
+                                <li><a href="post2.html" class="sidebar-link active">Топ-5 ошибок при внедрении ML</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item mt-4">
+                        <button class="accordion-header w-full text-left font-semibold text-slate-300 mb-2 flex justify-between items-center">
+                            <span>NLP</span>
+                            <svg class="w-4 h-4 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content">
+                            <ul>
+                                <li><a href="post3.html" class="sidebar-link">Анализ клиентских отзывов с помощью NLP</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </nav>
         </aside>
 
         <!-- Main Content -->
-        <main id="main-content" class="w-3/4 prose max-w-none" itemscope itemtype="http://schema.org/BlogPosting">
+        <main id="main-content" class="w-3/4 prose max-w-none pl-8" itemscope itemtype="http://schema.org/BlogPosting">
             <h1 itemprop="headline">Топ-5 ошибок при внедрении машинного обучения в бизнесе</h1>
             <p class="text-slate-400" itemprop="datePublished" content="2025-07-16">Опубликовано: 16 июля 2025</p>
             <div itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -152,14 +173,41 @@
             const sidebar = document.getElementById('sidebar');
             const sidebarToggle = document.getElementById('sidebar-toggle');
             const mainContent = document.getElementById('main-content');
+            const accordions = document.querySelectorAll('.accordion-header');
 
             sidebarToggle.addEventListener('click', () => {
-                sidebar.classList.toggle('w-1/4');
-                sidebar.classList.toggle('w-0');
-                sidebar.classList.toggle('p-4');
-                sidebar.classList.toggle('p-0');
-                mainContent.classList.toggle('w-3/4');
-                mainContent.classList.toggle('w-full');
+                const isCollapsed = sidebar.classList.contains('w-0');
+                if (isCollapsed) {
+                    sidebar.classList.remove('w-0', 'p-0');
+                    sidebar.classList.add('w-1/4', 'p-4');
+                    mainContent.classList.remove('w-full');
+                    mainContent.classList.add('w-3/4');
+                    localStorage.setItem('sidebarState', 'expanded');
+                } else {
+                    sidebar.classList.remove('w-1/4', 'p-4');
+                    sidebar.classList.add('w-0', 'p-0');
+                    mainContent.classList.remove('w-3/4');
+                    mainContent.classList.add('w-full');
+                    localStorage.setItem('sidebarState', 'collapsed');
+                }
+            });
+
+            if (localStorage.getItem('sidebarState') === 'collapsed') {
+                sidebarToggle.click();
+            }
+
+            accordions.forEach(accordion => {
+                accordion.addEventListener('click', () => {
+                    const content = accordion.nextElementSibling;
+                    const icon = accordion.querySelector('svg');
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
             });
         });
     </script>
