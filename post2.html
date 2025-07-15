@@ -59,7 +59,7 @@
             font-weight: 600;
         }
         #sidebar {
-            transition: width 0.3s;
+            transition: all 0.3s;
         }
         .accordion-content {
             max-height: 0;
@@ -181,12 +181,12 @@
                     sidebar.classList.remove('w-0', 'p-0');
                     sidebar.classList.add('w-1/4', 'p-4');
                     mainContent.classList.remove('w-full');
-                    mainContent.classList.add('w-3/4');
+                    mainContent.classList.add('w-3/4', 'pl-8');
                     localStorage.setItem('sidebarState', 'expanded');
                 } else {
                     sidebar.classList.remove('w-1/4', 'p-4');
                     sidebar.classList.add('w-0', 'p-0');
-                    mainContent.classList.remove('w-3/4');
+                    mainContent.classList.remove('w-3/4', 'pl-8');
                     mainContent.classList.add('w-full');
                     localStorage.setItem('sidebarState', 'collapsed');
                 }
@@ -204,6 +204,15 @@
                         content.style.maxHeight = null;
                         icon.style.transform = 'rotate(0deg)';
                     } else {
+                        // close all other accordions
+                        accordions.forEach(otherAccordion => {
+                            const otherContent = otherAccordion.nextElementSibling;
+                            const otherIcon = otherAccordion.querySelector('svg');
+                            if (otherContent.style.maxHeight) {
+                                otherContent.style.maxHeight = null;
+                                otherIcon.style.transform = 'rotate(0deg)';
+                            }
+                        });
                         content.style.maxHeight = content.scrollHeight + "px";
                         icon.style.transform = 'rotate(180deg)';
                     }
